@@ -36,13 +36,18 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Readers\Yaml\Resources\PrefabSample3.prefab" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Readers\" />
     <Folder Include="Readers\Yaml\" />
+    <Folder Include="Readers\Yaml\Resources\" />
+    <Folder Include="Readers\Yaml\Resources\Scripts\" />
+    <Folder Include="Readers\Yaml\Resources\Scripts\references\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Readers\Yaml\YamlPrefabMetadataReaderTest.cs" />
+    <Compile Include="Readers\Yaml\MetaFileServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Giacomelli.Unity.Metadata\Giacomelli.Unity.Metadata.csproj">
@@ -51,7 +56,214 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Readers\Yaml\PrefabSample1.prefab">
+    <Content Include="Readers\Yaml\Resources\PrefabSample1.prefab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildFailedMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildFailedMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildHidingMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildHidingMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildQueuedMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildQueuedMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildRunningMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildRunningMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildSuccessMaterial.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\BuildSuccessMaterial.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Burninating.prefab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Burninating.prefab.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Chunk.prefab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Chunk.prefab.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\ExplosionArms.prefab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\ExplosionArms.prefab.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\SmokeTrail.prefab">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\SmokeTrail.prefab.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballA.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballA.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballB.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballB.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballC.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\FireballC.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\Glow.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\Glow.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\ShockWave.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\ShockWave.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeA.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeA.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeB.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeB.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeMIx.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\SmokeMIx.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\Sparks.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\Sparks.mat.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.mdb.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.mdb.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.Editor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Skahal.Unity.Scripts.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Skahal.Unity.Scripts.Externals.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ClassicMods.BuildMod.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.dll.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.Editor.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.pdb.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.pdb.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.xml.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Skahal.Unity.Scripts.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Skahal.Unity.Scripts.Externals.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.dll.mdb.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ClassicMods.BuildMod.dll.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Zenject.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Readers\Yaml\Resources\PrefabSample2.prefab">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

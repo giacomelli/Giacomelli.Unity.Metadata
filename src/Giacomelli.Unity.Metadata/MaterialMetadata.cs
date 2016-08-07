@@ -4,8 +4,8 @@ using System.IO;
 
 namespace Giacomelli.Unity.Metadata
 {
-	[DebuggerDisplay("{FileId}: {Name}")]
-	public class ScriptMetadata : FileMetadataBase
+	[DebuggerDisplay("{FileId} | {Guid} | {Name}")]
+	public class MaterialMetadata : FileMetadataBase
 	{
 	}
 }

@@ -29,6 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\references\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\references\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -37,10 +43,24 @@
     <Compile Include="ScriptMetadata.cs" />
     <Compile Include="IPrefabMetadataReader.cs" />
     <Compile Include="Readers\Yaml\YamlPrefabMetadataReader.cs" />
+    <Compile Include="PrefabMetadataReaderExtensions.cs" />
+    <Compile Include="MaterialMetadata.cs" />
+    <Compile Include="FileMetadataBase.cs" />
+    <Compile Include="Readers\Yaml\MetaFileService.cs" />
+    <Compile Include="Readers\Yaml\MetaFileInfo.cs" />
+    <Compile Include="Commons\StringExtensions.cs" />
+    <Compile Include="IO\FileIdUtil.cs" />
+    <Compile Include="IO\MD4.cs" />
+    <Compile Include="ScriptMetadataService.cs" />
+    <Compile Include="Reflection\TypesHelper.cs" />
+    <Compile Include="MetadataConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Readers\" />
     <Folder Include="Readers\Yaml\" />
+    <Folder Include="Commons\" />
+    <Folder Include="IO\" />
+    <Folder Include="Reflection\" />
   </ItemGroup>
 </Project>
