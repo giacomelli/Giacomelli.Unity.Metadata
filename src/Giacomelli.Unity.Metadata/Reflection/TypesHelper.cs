@@ -20,8 +20,17 @@ namespace Giacomelli.Unity.Metadata
 
 			foreach (var dll in externalDlls)
 			{
-				var assembly = Assembly.LoadFile(dll);
-				s_types.AddRange(assembly.GetTypes());
+				try
+				{
+					var assembly = Assembly.LoadFile(dll);
+					s_types.AddRange(assembly.GetTypes());
+				}
+				catch (ReflectionTypeLoadException ex)
+				{
+					throw new InvalidOperationException(
+						"Error trying to load assembly '{0}':{1}".With(dll, ex.Message),
+						ex);
+				}
 			}
 		}
 

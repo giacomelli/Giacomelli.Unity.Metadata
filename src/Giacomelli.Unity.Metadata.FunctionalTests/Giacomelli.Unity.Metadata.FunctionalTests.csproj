@@ -179,30 +179,6 @@
     <Content Include="Readers\Yaml\Resources\Materials\Detonator\Materials\Sparks.mat.meta">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.meta">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.meta">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.EditorToolbox.dll.mdb.meta">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Readers\Yaml\Resources\Scripts\references\Giacomelli.Unity.Metadata.dll.mdb.meta">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Readers\Yaml\Resources\Scripts\references\Buildron.ModSdk.Editor.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
