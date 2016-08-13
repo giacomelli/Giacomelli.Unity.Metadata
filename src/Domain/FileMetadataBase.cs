@@ -6,7 +6,9 @@ namespace Giacomelli.Unity.Metadata.Domain
     {
         #region Properties
         public int FileId { get; set; }
+
         public string FullName { get; set; }
+
         public string Name
         {
             get
@@ -25,4 +27,3 @@ namespace Giacomelli.Unity.Metadata.Domain
         #endregion
     }
 }
-

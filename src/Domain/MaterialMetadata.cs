@@ -7,4 +7,3 @@ namespace Giacomelli.Unity.Metadata.Domain
     {
     }
 }
-

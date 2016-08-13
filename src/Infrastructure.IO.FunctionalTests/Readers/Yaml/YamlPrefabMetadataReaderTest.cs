@@ -2,8 +2,10 @@
 using System.IO;
 using Giacomelli.Unity.Metadata.Domain;
 using Giacomelli.Unity.Metadata.Infrastructure.Bootstrap;
+using Giacomelli.Unity.Metadata.Infrastructure.Framework.Logging;
 using Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.IO.FunctionalTests.Readers.Yaml
 {
@@ -13,17 +15,18 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.FunctionalTests.Readers.Ya
         [SetUp]
         public void Initialize()
         {
-            var assetsRootFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Readers", "Yaml", "Resources");
-            MetadataBootstrap.Setup(assetsRootFolder);
+            var assetsRootFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+            MetadataBootstrap.Setup(assetsRootFolder, MockRepository.GenerateMock<ILog>());
         }
 
         [Test]
         public void Read_PrefabSample1_Metadata()
         {
-            var target = new YamlPrefabMetadataReader(new ScriptMetadataService(MetadataBootstrap.TypeService));
-            var prefabPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Readers", "Yaml", "Resources", "PrefabSample1.prefab");
-            var yaml = File.OpenText(prefabPath);
-            var actual = target.Read(yaml);
+            var target = new YamlPrefabMetadataReader(
+                MetadataBootstrap.ScriptMetadataService,
+                MetadataBootstrap.FileSystem);
+
+            var actual = target.Read("PrefabSample1.prefab");
 
             Assert.IsNotNull(actual);
 
@@ -48,11 +51,11 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.FunctionalTests.Readers.Ya
         [Test]
         public void Read_PrefabSample2_Metadata()
         {
-            var target = new YamlPrefabMetadataReader(new ScriptMetadataService(MetadataBootstrap.TypeService));
-            var prefabPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Readers", "Yaml", "Resources", "PrefabSample2.prefab");
-            var yaml = File.OpenText(prefabPath);
-            var actual = target.Read(yaml);
+            var target = new YamlPrefabMetadataReader(
+              MetadataBootstrap.ScriptMetadataService,
+              MetadataBootstrap.FileSystem);
 
+            var actual = target.Read("PrefabSample2.prefab");
             Assert.IsNotNull(actual);
 
             // MonoBehaviours.

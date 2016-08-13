@@ -38,10 +38,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSystems\IsolatedFolderFileSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\Yaml\MetaFileInfo.cs" />
     <Compile Include="Readers\Yaml\MetaFileService.cs" />
     <Compile Include="Readers\Yaml\YamlPrefabMetadataReader.cs" />
+    <Compile Include="Reflection\ReflectionAssemblyLoader.cs" />
+    <Compile Include="Writers\Yaml\YamlPrefabMetadataWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
 {
-    public class FileIdUtil
+    public static class FileIdUtil
     {
         public static int FromType(Type type)
         {

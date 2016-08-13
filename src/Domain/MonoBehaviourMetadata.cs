@@ -10,4 +10,3 @@ namespace Giacomelli.Unity.Metadata.Domain
         #endregion
     }
 }
-

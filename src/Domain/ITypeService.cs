@@ -5,8 +5,10 @@ namespace Giacomelli.Unity.Metadata.Domain
 {
     public interface ITypeService
     {
-        IEnumerable<Type> GetAllTypes();
+        IEnumerable<Type> GetTypes();
 
-        Type GetType(string typeName);
+        Type GetTypeByName(string typeName);
+
+        string GetGuid(Type type);
     }
 }

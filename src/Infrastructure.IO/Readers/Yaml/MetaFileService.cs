@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Giacomelli.Unity.Metadata.Infrastructure.Framework.IO;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
 {
@@ -11,14 +11,14 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
         private static List<MetaFileInfo> s_infos = new List<MetaFileInfo>();
         private static Regex s_guidRegex = new Regex(@"guid: (\S+)", RegexOptions.Compiled);
 
-        public static void Initialize(string assetsRootFolder)
+        public static void Initialize(IFileSystem fileSystem)
         {
             s_infos = new List<MetaFileInfo>();
-            var metaFiles = Directory.GetFiles(assetsRootFolder, "*.meta", SearchOption.AllDirectories);
+            var metaFiles = fileSystem.GetFiles("*.meta");
 
             foreach (var metaFile in metaFiles)
             {
-                var content = File.ReadAllText(metaFile);
+                var content = fileSystem.ReadAllText(metaFile);
                 s_infos.Add(new MetaFileInfo
                 {
                     FileName = metaFile.Replace(".meta", string.Empty),
@@ -35,4 +35,3 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
         }
     }
 }
-

@@ -1,5 +1,7 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
+[SuppressMessage("Microsoft.Design", "CA1050:DeclareTypesInNamespaces")]
 public static class StringExtensions
 {
     /// <summary>
@@ -13,4 +15,3 @@ public static class StringExtensions
         return string.Format(CultureInfo.InvariantCulture, value, args);
     }
 }
-

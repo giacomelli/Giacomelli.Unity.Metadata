@@ -19,7 +19,7 @@ namespace Giacomelli.Unity.Metadata.Domain
             if (s_scripts == null)
             {
                 s_scripts = new List<ScriptMetadata>();
-                var types = m_typeService.GetAllTypes();
+                var types = m_typeService.GetTypes();
 
                 foreach (var t in types)
                 {
@@ -42,6 +42,5 @@ namespace Giacomelli.Unity.Metadata.Domain
 
             return script == null ? null : script.FullName;
         }
-
     }
 }

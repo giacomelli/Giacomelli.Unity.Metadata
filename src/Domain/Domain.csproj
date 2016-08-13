@@ -37,18 +37,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAssemblyLoader.cs" />
     <Compile Include="IAssetRepository.cs" />
+    <Compile Include="IGameObject.cs" />
+    <Compile Include="IMaterial.cs" />
     <Compile Include="IPrefabMetadataService.cs" />
+    <Compile Include="IPrefabMetadataWriter.cs" />
     <Compile Include="IScriptMetadataService.cs" />
     <Compile Include="ITypeService.cs" />
-    <Compile Include="PrefabMetadataExtensions.cs" />
     <Compile Include="PrefabMetadataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MonoBehaviourMetadata.cs" />
     <Compile Include="PrefabMetadata.cs" />
     <Compile Include="ScriptMetadata.cs" />
     <Compile Include="IPrefabMetadataReader.cs" />
-    <Compile Include="PrefabMetadataReaderExtensions.cs" />
     <Compile Include="MaterialMetadata.cs" />
     <Compile Include="FileMetadataBase.cs" />
     <Compile Include="ScriptMetadataService.cs" />

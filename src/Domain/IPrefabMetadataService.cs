@@ -4,6 +4,8 @@ namespace Giacomelli.Unity.Metadata.Domain
 {
     public interface IPrefabMetadataService
     {
-        IEnumerable<PrefabMetadata> GetAllPrefabs();
+        IEnumerable<PrefabMetadata> GetPrefabs();
+
+        void FixMissingMonobehaviours(PrefabMetadata prefab, IEnumerable<MonoBehaviourMetadata> missingMonoBehaviours);
     }
 }

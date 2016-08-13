@@ -1,40 +1,51 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
+using Giacomelli.Unity.Metadata.Infrastructure.Framework.IO;
 
 namespace Giacomelli.Unity.Metadata.Domain
 {
-    // TODO: create unit tests.
     public class PrefabMetadataService : IPrefabMetadataService
     {
-        private readonly IScriptMetadataService m_scriptMetadataService;
-        private readonly IPrefabMetadataReader m_prefabMetadataReader;
+        private readonly IPrefabMetadataReader m_reader;
+        private readonly IPrefabMetadataWriter m_writer;
+        private readonly IFileSystem m_fs;
+        private readonly ITypeService m_typeService;
 
-        public PrefabMetadataService(IScriptMetadataService scriptMetadataService, IPrefabMetadataReader prefabMetadataReader)
+        public PrefabMetadataService(
+            IPrefabMetadataReader prefabMetadataReader,
+            IPrefabMetadataWriter prefabMetadataWriter,
+            IFileSystem fileSystem,
+            ITypeService typeService)
         {
-            m_scriptMetadataService = scriptMetadataService;
-            m_prefabMetadataReader = prefabMetadataReader;
+            m_reader = prefabMetadataReader;
+            m_writer = prefabMetadataWriter;
+            m_fs = fileSystem;
+            m_typeService = typeService;
         }
 
-        public IEnumerable<PrefabMetadata> GetAllPrefabs()
+        public IEnumerable<PrefabMetadata> GetPrefabs()
         {
             var prefabs = new List<PrefabMetadata>();
-            var rootPath = Application.dataPath + "/";
-
-            // TODO: create a interface to access file system.
-            var prefabFiles = Directory.GetFiles(rootPath, "*.prefab", SearchOption.AllDirectories);
-            var scripts = m_scriptMetadataService.GetAllScripts();
+            var prefabFiles = m_fs.GetFiles("*.prefab");
 
             foreach (var path in prefabFiles)
             {
-                var prefab = m_prefabMetadataReader.ReadFromFile(path);
-                prefab.Name = Path.GetFileNameWithoutExtension(path);
-                prefab.Path = "Assets/" + path.Replace(rootPath, string.Empty);
-                //prefab.FillScriptsNames(scripts);
+                var prefab = m_reader.Read(path);
+                prefab.Name = m_fs.GetFileNameWithoutExtension(path);
+                prefab.Path = path;
                 prefabs.Add(prefab);
             }
 
             return prefabs;
+        }
+
+        public void FixMissingMonobehaviours(PrefabMetadata prefab, IEnumerable<MonoBehaviourMetadata> missingMonoBehaviours)
+        {
+            foreach (var m in missingMonoBehaviours)
+            {     
+                var scriptType = m_typeService.GetTypeByName(m.Script.FullName);
+                var newGuid = m_typeService.GetGuid(scriptType);
+                m_writer.ReplaceGuid(m.Script, newGuid, prefab.Path);
+            }
         }
     }
 }

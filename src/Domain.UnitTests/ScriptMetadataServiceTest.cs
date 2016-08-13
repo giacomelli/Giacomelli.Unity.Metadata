@@ -16,7 +16,7 @@ namespace Giacomelli.Unity.Metadata.Domain.UnitTests
         public void Initialize()
         {
             m_typeService = MockRepository.GenerateMock<ITypeService>();
-            m_typeService.Expect(t => t.GetAllTypes()).Return(new Type[]
+            m_typeService.Expect(t => t.GetTypes()).Return(new Type[]
             {
                 typeof(StringExtensions),
                 typeof(ScriptMetadataService)

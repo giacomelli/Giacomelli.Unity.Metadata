@@ -58,6 +58,10 @@
       <Project>{BD459601-C26C-4AB3-89EC-F131A056536F}</Project>
       <Name>Infrastructure.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Unity\Infrastructure.Unity.csproj">
+      <Project>{D9B7AE37-6044-4DA9-A483-93AFF8D9B3E1}</Project>
+      <Name>Infrastructure.Unity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

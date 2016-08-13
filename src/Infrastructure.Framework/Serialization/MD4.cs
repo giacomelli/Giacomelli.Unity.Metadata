@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Cryptography;
 
@@ -17,6 +18,7 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
         private uint[] _x;
         private int _bytesProcessed;
 
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MD4()
         {
             _x = new uint[16];
@@ -34,9 +36,9 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
             _bytesProcessed = 0;
         }
 
-        protected override void HashCore(byte[] array, int offset, int length)
+        protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
-            ProcessMessage(Bytes(array, offset, length));
+            ProcessMessage(Bytes(array, ibStart, cbSize));
         }
 
         protected override byte[] HashFinal()
@@ -80,7 +82,7 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
             }
         }
 
-        private IEnumerable<byte> Bytes(uint word)
+        private static IEnumerable<byte> Bytes(uint word)
         {
             yield return (byte)(word & 255);
             yield return (byte)((word >> 8) & 255);
@@ -88,7 +90,7 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
             yield return (byte)((word >> 24) & 255);
         }
 
-        private IEnumerable<byte> Repeat(byte value, int count)
+        private static IEnumerable<byte> Repeat(byte value, int count)
         {
             for (int i = 0; i < count; i++)
             {
