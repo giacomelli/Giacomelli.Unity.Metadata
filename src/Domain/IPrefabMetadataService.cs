@@ -7,5 +7,5 @@ namespace Giacomelli.Unity.Metadata.Domain
         IEnumerable<PrefabMetadata> GetPrefabs();
 
         void FixMissingMonobehaviours(PrefabMetadata prefab, IEnumerable<MonoBehaviourMetadata> missingMonoBehaviours);
-    }
+	}
 }
