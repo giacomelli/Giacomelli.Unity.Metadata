@@ -9,6 +9,9 @@ using System.Security.Cryptography;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
 {
+	/// <summary>
+	/// MD4.
+	/// </summary>
     public class MD4 : HashAlgorithm
     {
         private uint _a;
@@ -18,6 +21,10 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
         private uint[] _x;
         private int _bytesProcessed;
 
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="T:Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization.MD4"/> class.
+		/// </summary>
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MD4()
         {
@@ -26,6 +33,9 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
             Initialize();
         }
 
+		/// <summary>
+		/// Initialize this instance.
+		/// </summary>
         public override void Initialize()
         {
             _a = 0x67452301;
@@ -36,11 +46,21 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.Framework.Serialization
             _bytesProcessed = 0;
         }
 
+		/// <summary>
+		/// Hashs the core.
+		/// </summary>
+		/// <param name="array">Array.</param>
+		/// <param name="ibStart">Ib start.</param>
+		/// <param name="cbSize">Cb size.</param>
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
             ProcessMessage(Bytes(array, ibStart, cbSize));
         }
 
+		/// <summary>
+		/// Hashs the final.
+		/// </summary>
+		/// <returns>The final.</returns>
         protected override byte[] HashFinal()
         {
             try

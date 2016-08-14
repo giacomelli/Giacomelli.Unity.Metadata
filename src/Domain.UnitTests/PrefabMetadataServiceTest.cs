@@ -10,7 +10,6 @@ namespace Giacomelli.Unity.Metadata.Domain.UnitTests
     public class PrefabMetadataServiceTest
     {
         #region Fields
-        private IScriptMetadataService m_scriptMetadataService;
         private IPrefabMetadataReader m_prefabMetadataReader;
         private IPrefabMetadataWriter m_prefabMetadataWriter;
         private IFileSystem m_fileSystem;
@@ -21,7 +20,6 @@ namespace Giacomelli.Unity.Metadata.Domain.UnitTests
         [SetUp]
         public void Initialize()
         {
-            m_scriptMetadataService = MockRepository.GenerateMock<IScriptMetadataService>();
             m_prefabMetadataReader = MockRepository.GenerateMock<IPrefabMetadataReader>();
             m_prefabMetadataWriter = MockRepository.GenerateMock<IPrefabMetadataWriter>();
             m_fileSystem = MockRepository.GenerateMock<IFileSystem>();

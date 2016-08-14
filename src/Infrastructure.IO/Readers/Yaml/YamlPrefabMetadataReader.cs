@@ -7,6 +7,9 @@ using Giacomelli.Unity.Metadata.Infrastructure.Framework.IO;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
 {
+	/// <summary>
+	/// Yaml prefab metadata reader.
+	/// </summary>
     public class YamlPrefabMetadataReader : IPrefabMetadataReader
     {
         #region Fields
@@ -21,15 +24,25 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
         #endregion
 
         #region Constructors
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="T:Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml.YamlPrefabMetadataReader"/> class.
+		/// </summary>
+		/// <param name="scriptMetadataService">Script metadata service.</param>
+		/// <param name="fileSystem">File system.</param>
         public YamlPrefabMetadataReader(IScriptMetadataService scriptMetadataService, IFileSystem fileSystem)
         {
             m_scriptMetadataService = scriptMetadataService;
             m_fileSystem = fileSystem;
         }
-        #endregion
+		#endregion
 
-        #region Methods
-        public PrefabMetadata Read(string fileName)
+		#region Methods
+		/// <summary>
+		/// Reads the prefab metadata form the specified file.
+		/// </summary>
+		/// <param name="fileName">The file name.</param>
+		public PrefabMetadata Read(string fileName)
         {
             var metadata = new PrefabMetadata();
             var content = m_fileSystem.ReadAllText(fileName);

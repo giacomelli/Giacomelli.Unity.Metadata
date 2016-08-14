@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
+/// <summary>
+/// String extensions.
+/// </summary>
 [SuppressMessage("Microsoft.Design", "CA1050:DeclareTypesInNamespaces")]
 public static class StringExtensions
 {

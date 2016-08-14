@@ -28,7 +28,7 @@ namespace Giacomelli.Unity.Metadata.Domain.UnitTests
         [Test]
         public void GetAllScripts_NoArgs_AllScriptsFromTypes()
         {
-            var actual = m_target.GetAllScripts();
+            var actual = m_target.GetScripts();
             Assert.IsNotNull(actual);
             Assert.AreEqual(2, actual.Count);
         }

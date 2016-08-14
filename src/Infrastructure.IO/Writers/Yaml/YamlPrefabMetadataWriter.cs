@@ -5,17 +5,32 @@ using Giacomelli.Unity.Metadata.Infrastructure.Framework.Logging;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Writers.Yaml
 {
+	/// <summary>
+	/// Yaml prefab metadata writer.
+	/// </summary>
     public class YamlPrefabMetadataWriter : IPrefabMetadataWriter
     {
         private readonly IFileSystem m_fs;
         private readonly ILog m_log;
 
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="T:Giacomelli.Unity.Metadata.Infrastructure.IO.Writers.Yaml.YamlPrefabMetadataWriter"/> class.
+		/// </summary>
+		/// <param name="fileSystem">File system.</param>
+		/// <param name="log">Log.</param>
         public YamlPrefabMetadataWriter(IFileSystem fileSystem, ILog log)
         {
             m_fs = fileSystem;
             m_log = log;
         }
 
+		/// <summary>
+		/// Replaces the GUID.
+		/// </summary>
+		/// <param name="oldScript">Old script.</param>
+		/// <param name="newGuid">New GUID.</param>
+		/// <param name="fileName">File name.</param>
         public void ReplaceGuid(ScriptMetadata oldScript, string newGuid, string fileName)
         {
             m_log.Debug("Replacing guid from '{0}' to '{1}' on file '{2}'...", oldScript.Guid, newGuid, fileName);

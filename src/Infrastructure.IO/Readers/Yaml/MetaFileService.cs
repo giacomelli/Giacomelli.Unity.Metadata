@@ -6,11 +6,18 @@ using Giacomelli.Unity.Metadata.Infrastructure.Framework.IO;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
 {
+	/// <summary>
+	/// Meta file service.
+	/// </summary>
     public static class MetaFileService
     {
         private static List<MetaFileInfo> s_infos = new List<MetaFileInfo>();
         private static Regex s_guidRegex = new Regex(@"guid: (\S+)", RegexOptions.Compiled);
 
+		/// <summary>
+		/// Initialize the specified fileSystem.
+		/// </summary>
+		/// <param name="fileSystem">File system.</param>
         public static void Initialize(IFileSystem fileSystem)
         {
             s_infos = new List<MetaFileInfo>();
@@ -27,6 +34,11 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
             }
         }
 
+		/// <summary>
+		/// Gets the file name by GUID.
+		/// </summary>
+		/// <returns>The file name by GUID.</returns>
+		/// <param name="guid">GUID.</param>
         public static string GetFileNameByGuid(string guid)
         {
             var info = s_infos.FirstOrDefault(i => i.Guid.Equals(guid, StringComparison.Ordinal));

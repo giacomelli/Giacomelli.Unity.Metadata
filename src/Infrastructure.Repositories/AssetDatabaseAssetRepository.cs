@@ -5,9 +5,17 @@ using UnityEngine;
 
 namespace Giacomelli.Unity.Metadata.Infrastructure.Repositories
 {
-    public class AssetDatabaseAssetRepository : IAssetRepository
+	/// <summary>
+	/// An IAssetRepository implementation that use AssetDatabase.
+	/// </summary>
+	public class AssetDatabaseAssetRepository : IAssetRepository
     {
-        public IGameObject GetGameObject(string path)
+		/// <summary>
+		/// Gets a game object in the specified path.
+		/// </summary>
+		/// <returns>The game object.</returns>
+		/// <param name="path">The asset path.</param>
+		public IGameObject GetGameObject(string path)
         {
             return AssetDatabase.LoadAssetAtPath<GameObject>(Path.Combine("Assets", path)).Adapt();
         }

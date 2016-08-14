@@ -8,6 +8,9 @@ using Giacomelli.Unity.Metadata.Infrastructure.Framework.IO;
 
 namespace Giacomelli.Unity.Metadata.Domain
 {
+	/// <summary>
+	/// Type service.
+	/// </summary>
     public class TypeService : ITypeService
     {
         private static Regex s_guidRegex = new Regex(@"guid: (\S+)", RegexOptions.Compiled);
@@ -15,12 +18,21 @@ namespace Giacomelli.Unity.Metadata.Domain
         private readonly IAssemblyLoader m_assemblyLoader;
         private List<Type> s_types;
         
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Giacomelli.Unity.Metadata.Domain.TypeService"/> class.
+		/// </summary>
+		/// <param name="fileSystem">File system.</param>
+		/// <param name="assemblyLoader">Assembly loader.</param>
         public TypeService(IFileSystem fileSystem, IAssemblyLoader assemblyLoader)
         {
             m_fs = fileSystem;
             m_assemblyLoader = assemblyLoader;
         }
 
+		/// <summary>
+		/// Gets the types.
+		/// </summary>
+		/// <returns>The types.</returns>
         public IEnumerable<Type> GetTypes()
         {
             if (s_types == null)
@@ -57,7 +69,12 @@ namespace Giacomelli.Unity.Metadata.Domain
             return s_types;
         }
 
-        public Type GetTypeByName(string typeName)
+		/// <summary>
+		/// Gets a type by the name.
+		/// </summary>
+		/// <returns>The type.</returns>
+		/// <param name="typeName">Type name.</param>
+		public Type GetTypeByName(string typeName)
         {
             var type = GetTypes().FirstOrDefault(t => t.FullName.Equals(typeName, StringComparison.OrdinalIgnoreCase));
 
@@ -69,6 +86,11 @@ namespace Giacomelli.Unity.Metadata.Domain
             return type;
         }
 
+		/// <summary>
+		/// Gets the GUID.
+		/// </summary>
+		/// <returns>The GUID.</returns>
+		/// <param name="type">Type.</param>
         public string GetGuid(Type type)
         {
             var metaFile = m_fs.GetFiles("{0}.cs.meta".With(type.Name)).FirstOrDefault();
