@@ -1,0 +1,46 @@
+version: 0.0.1.{build}
+os: Visual Studio 2015
+configuration: Debug
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: tRe+AKKeYRIVsppcghOPhmZ7VslLFEtgowesjgb12IK0KFCDCdA9XAyr527Y4vJu
+  GITHUB_REPO_TOKEN:
+    secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V	
+install:
+- cmd: choco install gtksharp    
+- cmd: choco install resharper-clt.portable
+- cmd: choco install fxcop
+  
+before_build:
+- cmd: nuget restore .\src\Giacomelli.Unity.Metadata.sln
+
+build:
+  project: src\Giacomelli.Unity.Metadata.sln
+  verbosity: minimal
+
+after_build:
+- cmd: >-    
+    "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\Giacomelli.Unity.Metadata.FxCop /out:.\tools\fxcop-report.xml
+    
+    .\tools\BadgesSharpCmd.exe -o giacomelli -r Giacomelli.Unity.Metadata -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_REPO_TOKEN%
+    
+    .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\Giacomelli.Unity.Metadata.sln --styleCopSettingsFile .\src\Settings.StyleCop -of .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
+    
+    .\tools\BadgesSharpCmd.exe -o giacomelli -r Giacomelli.Unity.Metadata -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_REPO_TOKEN%
+    
+    C:\ProgramData\chocolatey\lib\resharper-clt.portable\tools\dupfinder.exe /output=.\tools\dupFinder-Report.xml /show-text /exclude=**\*Test.cs;**\*.feature.cs;**\BundleConfig.cs .\src\Giacomelli.Unity.Metadata.sln
+    
+    .\tools\BadgesSharpCmd.exe -o giacomelli -r Giacomelli.Unity.Metadata -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_REPO_TOKEN%
+
+test_script:
+- ps: >-
+    .\tools\OpenCover\tools\OpenCover.Console.exe -skipautoprops -register:user -target:NUnitConsole\nunit3-console.exe -register:user "-targetargs:..\src\Domain.UnitTests\bin\Debug\Giacomelli.Unity.Metadata.Domain.UnitTests.dll ..\src\Infrastructure.Framework.UnitTests\bin\Debug\Infrastructure.Framework.UnitTests.dll" -filter:"+[Giacomelli.Unity.Metadata.Domain]* +[Giacomelli.Unity.Metadata.Infrastructure.Framework]*" -output:opencoverCoverage.xml
+
+    .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+artifacts:
+  - path: .\tools\fxcop-report.xml
+    name: FxCop-Report  
+  - path: .\tools\stylecop-report.xml
+    name: StyleCop-Report     
+  - path: .\tools\dupFinder-report.xml
+    name: DupFinder-report 
