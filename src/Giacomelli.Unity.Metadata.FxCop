@@ -21,12 +21,12 @@
   <IgnoreGeneratedCode>True</IgnoreGeneratedCode>
  </ProjectOptions>
  <Targets>
-  <Target Name="$(ProjectDir)/Domain/bin/Release/Giacomelli.Unity.Metadata.Domain.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Infrastructure.Bootstrap/bin/Release/Giacomelli.Unity.Metadata.Infrastructure.Bootstrap.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Infrastructure.Framework/bin/Release/Giacomelli.Unity.Metadata.Infrastructure.Framework.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Infrastructure.IO/bin/Release/Giacomelli.Unity.Metadata.Infrastructure.IO.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Infrastructure.Repositories/bin/Release/Giacomelli.Unity.Metadata.Infrastructure.Repositories.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Infrastructure.Unity/bin/Release/Giacomelli.Unity.Metadata.Infrastructure.Unity.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Domain/bin/Debug/Giacomelli.Unity.Metadata.Domain.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Infrastructure.Bootstrap/bin/Debug/Giacomelli.Unity.Metadata.Infrastructure.Bootstrap.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Infrastructure.Framework/bin/Debug/Giacomelli.Unity.Metadata.Infrastructure.Framework.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Infrastructure.IO/bin/Debug/Giacomelli.Unity.Metadata.Infrastructure.IO.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Infrastructure.Repositories/bin/Debug/Giacomelli.Unity.Metadata.Infrastructure.Repositories.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Infrastructure.Unity/bin/Debug/Giacomelli.Unity.Metadata.Infrastructure.Unity.dll" Analyze="True" AnalyzeAllChildren="True" />
  </Targets>
  <Rules>
   <RuleFiles>
