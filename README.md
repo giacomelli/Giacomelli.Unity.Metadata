@@ -25,7 +25,7 @@ Usage
 
 Initialize
 ---
-Just call the live below to initilize all default services.
+Just call the line below to initilize all default services.
 
 ```csharp
 
