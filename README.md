@@ -1,11 +1,11 @@
 Giacomelli.Unity.Metadata
 ===========
 
-[![Build status](https://ci.appveyor.com/api/projects/status/h9ptxpyj30ah3mva?svg=true)](https://ci.appveyor.com/project/giacomelli/geneticsharp)
-[![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/GeneticSharp/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/giacomelli/GeneticSharp/badge.svg?branch=master&service=github)](https://coveralls.io/github/giacomelli/GeneticSharp?branch=master)
-[![FxCop](http://badgessharp.apphb.com/badges/giacomelli/GeneticSharp/FxCop)](https://ci.appveyor.com/project/giacomelli/GeneticSharp/build/artifacts)
-[![DupFinder](http://badgessharp.apphb.com/badges/giacomelli/GeneticSharp/DupFinder)](https://ci.appveyor.com/project/giacomelli/GeneticSharp/build/artifacts)
+[![Build status](https://ci.appveyor.com/api/projects/status/hp51ath4ijyjf38v?svg=true)](https://ci.appveyor.com/project/giacomelli/Giacomelli.Unity.Metadata)
+[![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/Giacomelli.Unity.Metadata/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/giacomelli/Giacomelli.Unity.Metadata/badge.svg?branch=master&service=github)](https://coveralls.io/github/giacomelli/Giacomelli.Unity.Metadata?branch=master)
+[![FxCop](http://badgessharp.apphb.com/badges/giacomelli/Giacomelli.Unity.Metadata/FxCop)](https://ci.appveyor.com/project/giacomelli/Giacomelli.Unity.Metadata/build/artifacts)
+[![DupFinder](http://badgessharp.apphb.com/badges/giacomelli/Giacomelli.Unity.Metadata/DupFinder)](https://ci.appveyor.com/project/giacomelli/Giacomelli.Unity.Metadata/build/artifacts)
 
 Library to read metadata from Unity3d asset files when "Asset Serialization" mode is "Force text".
 
