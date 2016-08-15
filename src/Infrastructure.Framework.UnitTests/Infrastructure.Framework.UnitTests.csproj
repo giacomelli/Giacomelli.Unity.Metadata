@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Giacomelli.Unity.Metadata.Infrastructure.Framework.UnitTests</RootNamespace>
-    <AssemblyName>Infrastructure.Framework.UnitTests</AssemblyName>
+    <AssemblyName>Giacomelli.Unity.Metadata.Infrastructure.Framework.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
