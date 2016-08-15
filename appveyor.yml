@@ -37,7 +37,8 @@ test_script:
     nunit3-console.exe ".\src\Infrastructure.IO.FunctionalTests\bin\$env:CONFIGURATION\Giacomelli.Unity.Metadata.Infrastructure.IO.FunctionalTests.dll"
     
  - ps: >-
-    .\tools\OpenCover\tools\OpenCover.Console.exe -skipautoprops -register:user -target:nunit3-console.exe "-targetargs:.\src\Domain.UnitTests\bin\$env:CONFIGURATION\Giacomelli.Unity.Metadata.Domain.UnitTests.dll .\src\Infrastructure.Framework.UnitTests\bin\$env:CONFIGURATION\Infrastructure.Framework.UnitTests.dll" -filter:"+[Giacomelli.Unity.Metadata.Domain]* +[Giacomelli.Unity.Metadata.Infrastructure.Framework]*" -output:opencoverCoverage.xml
+    .\src\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe skipautoprops -register:user -target:nunit3-console.exe "-targetargs:""src\Domain.UnitTests\bin\$env:CONFIGURATION\Giacomelli.Unity.Metadata.Domain.UnitTests.dll src\Infrastructure.Framework.UnitTests\bin\$env:CONFIGURATION\Infrastructure.Framework.UnitTests.dll"" " -filter:"+[Giacomelli.Unity.Metadata.Domain]* +[Giacomelli.Unity.Metadata.Infrastructure.Framework]*" -output:opencoverCoverage.xml 
+
 
  - ps: >-
     .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
