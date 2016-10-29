@@ -75,7 +75,14 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.Readers.Yaml
         {
             try
             {
-                return Convert.ToInt32(regex.Match(document).Groups["fileId"].Value, CultureInfo.InvariantCulture);
+				var id = regex.Match(document).Groups["fileId"].Value;
+
+				if (string.IsNullOrEmpty(id))
+				{
+					return 0;
+				}
+
+                return Convert.ToInt32(id, CultureInfo.InvariantCulture);
             }
             catch (Exception ex)
             {

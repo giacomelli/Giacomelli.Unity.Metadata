@@ -87,6 +87,25 @@ namespace Giacomelli.Unity.Metadata.Infrastructure.IO.FunctionalTests.Readers.Ya
         }
 
 
+		[Test]
+		public void Read_PrefabSample4_Metadata()
+		{
+			var target = new YamlPrefabMetadataReader(
+				MetadataBootstrap.ScriptMetadataService,
+				MetadataBootstrap.FileSystem);
+
+			var actual = target.Read("PrefabSample4.prefab");
+
+			Assert.IsNotNull(actual);
+
+			// MonoBehaviours.
+			Assert.AreEqual(1, actual.MonoBehaviours.Count);
+			AssertFile(actual.MonoBehaviours[0].Script, 0, "", null);
+	
+			// Materials.
+			Assert.AreEqual(0, actual.Materials.Count);
+		}
+
         private void AssertFile(FileMetadataBase target, int expectedFileId, string expectedGuid, string expectedName)
         {
             Assert.IsNotNull(target);
