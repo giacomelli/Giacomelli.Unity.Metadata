@@ -1,5 +1,4 @@
-Giacomelli.Unity.Metadata
-===========
+# Giacomelli.Unity.Metadata
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hp51ath4ijyjf38v?svg=true)](https://ci.appveyor.com/project/giacomelli/Giacomelli.Unity.Metadata)
 [![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/Giacomelli.Unity.Metadata/master/LICENSE)
@@ -11,7 +10,7 @@ Library to read metadata from Unity3d asset files when "Asset Serialization" mod
 
 --------
   
-###Code quality
+## Code quality
 - 100% unit test code coverage.
 - FxCop validated.
 - Code duplicated verification.
@@ -20,11 +19,9 @@ Library to read metadata from Unity3d asset files when "Asset Serialization" mod
 --------
 
 
-Usage
-===
+## Usage
 
-Initialize
----
+### Initialize
 Just call the line below to initilize all default services.
 
 ```csharp
@@ -33,8 +30,7 @@ MetadataBootstrap.Setup();
 
 ```
 
-Get scripts metadata
----
+### Get scripts metadata
 ```csharp
 
 var log = MetadataBootstrap.Log;
@@ -51,8 +47,7 @@ foreach(var sm in scriptsMetadata)
 
 ```
 
-Get prefabs metadata
----
+### Get prefabs metadata
 ```csharp
 
 var log = MetadataBootstrap.Log;
@@ -69,8 +64,7 @@ foreach(var pm in prefasMetadata)
 
 ```
 
-Fix "Missing (Mono Script)"
----
+### Fix "Missing (Mono Script)"
 ```csharp
 
 var prefabService = MetadataBootstrap.PrefabMetadataService;
@@ -87,8 +81,7 @@ foreach (var prefab in prefabs)
 
 ```
 
-FAQ
-======
+## FAQ
 
 Having troubles? 
 
@@ -97,15 +90,13 @@ Having troubles?
  
  --------
 
-How to improve it?
-======
+## How to improve it?
 
 Create a fork of [Giacomelli.Unity.Metadata](https://github.com/giacomelli/Giacomelli.Unity.Metadata/fork). 
 
 Did you change it? [Submit a pull request](https://github.com/giacomelli/Giacomelli.Unity.Metadata/pull/new/master).
 
 
-License
-======
+## License
 Licensed under the The MIT License (MIT).
 In others words, you can use this library for developement any kind of software: open source, commercial, proprietary and alien.
