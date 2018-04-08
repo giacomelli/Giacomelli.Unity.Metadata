@@ -9,8 +9,9 @@
 Library to read metadata from Unity3d asset files when "Asset Serialization" mode is "Force text".
 
 --------
-  
+
 ## Code quality
+- Tested on **Unity 5.3.6**
 - 100% unit test code coverage.
 - FxCop validated.
 - Code duplicated verification.
